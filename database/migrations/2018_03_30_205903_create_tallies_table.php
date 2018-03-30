@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TallyType extends Migration
+class CreateTalliesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class TallyType extends Migration
      */
     public function up()
     {
-        Schema::create('type', function (Blueprint $table) {
-            $table->increments('type_id');
-            $table->integer('type_type');
+        Schema::create('tallies', function (Blueprint $table) {
+            $table->increments('tally_id');
+            $table->integer('tally_score');
+            $table->integer('tally_weapons_fk');
+            $table->integer('tally_user_fk');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class TallyType extends Migration
      */
     public function down()
     {
-        Schema::drop('type');
+        Schema::drop('tally');
     }
 }
