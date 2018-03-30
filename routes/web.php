@@ -14,3 +14,7 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->get('/json', function () {
+    return response()->json(['sovs' => 'er godt']);
+});
