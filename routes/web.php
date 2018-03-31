@@ -18,30 +18,26 @@ $router->get('/', function () use ($router) {
 // Users
 $router->group(['prefix' => 'users'], function () use ($router) {
     $router->get('/', 'UserController@getAll');
-
     $router->group(['prefix' => '{user}'], function () use ($router) {
-        $router->get('/', 'UserController@getOne');
+        $router->get('{user}', 'UserController@getOne');
         $router->get('/relations/{relations}', 'UserController@getOne');
     });
 });
-
 // Tallies
 $router->group(['prefix' => 'tallies'], function () use ($router) {
     $router->get('/', 'TallyController@getAll');
     $router->get('/relations/{relations}', 'TallyController@getAll');
     
     $router->group(['prefix' => '{tally}'], function () use ($router) {
-        $router->get('/', 'TallyController@getOne');
+        $router->get('{tally}', 'TallyController@getOne');
         $router->get('/relations/{relations}', 'TallyController@getOne');
     });
 });
-
 // Weapons
 $router->group(['prefix' => 'weapons'], function () use ($router) {
     $router->get('/', 'WeaponController@getAll');
-
     $router->group(['prefix' => '{weapon}'], function () use ($router) {
-        $router->get('/', 'WeaponController@getOne');
+        $router->get('{weapon}', 'WeaponController@getOne');
         $router->get('/relations/{relations}', 'WeaponController@getOne');
     });
 });
