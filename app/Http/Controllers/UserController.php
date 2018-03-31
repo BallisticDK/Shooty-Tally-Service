@@ -1,23 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\User;
+
 class UserController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    public function show()
+    public function getAll()
     {
         return User::all();
     }
 
-    //
+    public function getOne(int $id)
+    {
+        return User::findOrFail($id);
+    }
 }

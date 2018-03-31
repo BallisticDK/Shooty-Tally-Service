@@ -1,23 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Weapon;
+
 class WeaponController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    public function show()
+    public function getAll()
     {
         return Weapon::all();
     }
 
-    //
+    public function getOne(int $id)
+    {
+        return Weapon::findOrFail($id);
+    }
 }

@@ -1,28 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Tally;
+
 class TallyController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    public function show()
+    public function getAll()
     {
         return Tally::all();
     }
 
-    public function showjoin()
+    public function getOne(int $id)
     {
-        return Tally::with('weapon')->with('user')->get();
+        return Tally::findOrFail($id);
     }
-
-    //
 }

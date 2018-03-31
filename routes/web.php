@@ -15,11 +15,20 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('/json', function () {
-    return response()->json();
+// Users
+$router->group(['prefix' => 'users'], function () use ($router) {
+    $router->get('/', 'UserController@getAll');
+    $router->get('/{user}', 'UserController@getOne');
 });
 
-$router->get('/GetAllWeapons', 'WeaponController@show');
-$router->get('/GetAllUsers', 'UserController@show');
-$router->get('/GetTallies', 'TallyController@show');
-$router->get('/GetSovs', 'TallyController@showjoin');
+// Tallies
+$router->group(['prefix' => 'tallies'], function () use ($router) {
+    $router->get('/', 'TallyController@getAll');
+    $router->get('/{tally}', 'TallyController@getOne');
+});
+
+// Weapons
+$router->group(['prefix' => 'weapons'], function () use ($router) {
+    $router->get('/', 'WeaponController@getAll');
+    $router->get('/{weapon}', 'WeaponController@getOne');
+});
