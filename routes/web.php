@@ -17,18 +17,18 @@ $router->get('/', function () use ($router) {
 
 // Users
 $router->group(['prefix' => 'users'], function () use ($router) {
-    $router->get('/[{/relations}]', 'UserController@getAll');
-    $router->get('/{user}/[{/relations}]', 'UserController@getOne');
+    $router->get('/[{relations}]', 'UserController@getAll');
+    $router->get('/{user}[/{relations}]', 'UserController@getOne');
 });
 
 // Tallies
 $router->group(['prefix' => 'tallies'], function () use ($router) {
-    $router->get('/[{/relations}]', 'TallyController@getAll');
-    $router->get('/{tally}/[{/relations}]', 'TallyController@getOne');
+    $router->get('/[{relations}]', 'TallyController@getAll');
+    $router->get('/{tally}[/{relations}]', 'TallyController@getOne');
 });
 
 // Weapons
 $router->group(['prefix' => 'weapons'], function () use ($router) {
-    $router->get('/[{/relations}]', 'WeaponController@getAll');
-    $router->get('/{weapon}/[{/relations}]', 'WeaponController@getOne');
+    $router->get('/[{relations}]', 'WeaponController@getAll');
+    $router->get('/{weapon}[/{relations}]', 'WeaponController@getOne');
 });
