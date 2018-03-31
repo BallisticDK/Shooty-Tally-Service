@@ -16,5 +16,10 @@ $router->get('/', function () use ($router) {
 });
 
 $router->get('/json', function () {
-    return response()->json(['sovs' => 'er godt']);
+    return response()->json();
 });
+
+$router->get('/GetAllWeapons', 'WeaponController@show');
+$router->get('/GetAllUsers', 'UserController@show');
+$router->get('/GetTallies', 'TallyController@show');
+$router->get('/GetSovs', 'TallyController@showjoin');
